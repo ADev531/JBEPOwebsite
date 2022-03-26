@@ -1,8 +1,14 @@
-<?php
-  $FileName=$_FILES['fuResume']['name'];
-  $TmpName=$_FILES['fuResume']['tmp_name'];
-  
-  move_uploaded_file($TmpName,$FileName);
-  
-  echo('Place Uploaded');
-?>
+<html>
+  <body>
+    <?php
+      $filename = $_FILES['file']['name'];
+      $location = "PlaceUploads".$filename;
+      
+      if(move_uploaded_file($_FILES['file']['tmp_name'], $location)){
+        echo '<p>Place Uploaded!</p>'
+      }else{
+        echo '<p>Place Upload Failed.</p>'
+      }
+    ?>
+  </body>
+</html>
